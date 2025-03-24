@@ -5,8 +5,7 @@ import AppProvider from "@/components/providers/app-providers";
 import ClerkAppProvider from "@/components/providers/clerk-app-provider";
 
 export const metadata: Metadata = {
-  title: "CODE-X",
-  description: "A NEW GENERATION CODE EDITIOR SOFTWARE",
+  title: "SMART PLAN MANAGER",
 };
 
 export default function RootLayout({
