@@ -1,39 +1,62 @@
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          <UserButton />
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
+    <main className="flex min-h-screen flex-col bg-black text-white px-4 relative">
+      {/* User profile button */}
+      <div className="absolute top-4 right-4">
+        <UserButton />
       </div>
+
+      {/* Centered Content */}
+      <div className="flex flex-1 flex-col justify-center items-center text-center gap-6 max-w-3xl mx-auto">
+        <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight">
+          Smart Plan Manager
+        </h1>
+
+        <p className="text-lg text-gray-400 max-w-2xl">
+          Plan smarter, get more done. Create, edit, and manage your tasks seamlessly.
+          Stay organized and boost your productivity with ease.
+        </p>
+
+        {/* Features List */}
+        <div className="grid gap-4 sm:grid-cols-3 w-full mt-8">
+          <div className="border border-white/10 bg-white/5 rounded-lg p-4 hover:bg-white/10 transition">
+            <h3 className="text-xl font-semibold">Create Tasks</h3>
+            <p className="text-gray-400 text-sm mt-2">
+              Easily add new tasks with due dates, priorities, and descriptions.
+            </p>
+          </div>
+
+          <div className="border border-white/10 bg-white/5 rounded-lg p-4 hover:bg-white/10 transition">
+            <h3 className="text-xl font-semibold">Edit Tasks</h3>
+            <p className="text-gray-400 text-sm mt-2">
+              Update task details anytime to keep things accurate and current.
+            </p>
+          </div>
+
+          <div className="border border-white/10 bg-white/5 rounded-lg p-4 hover:bg-white/10 transition">
+            <h3 className="text-xl font-semibold">Delete Tasks</h3>
+            <p className="text-gray-400 text-sm mt-2">
+              Clean up your plan by removing tasks you no longer need.
+            </p>
+          </div>
+        </div>
+
+        {/* Call to Action Button */}
+        <Link
+          href="/task"
+          className="mt-10 inline-block px-8 py-4 rounded-md bg-white text-black text-lg font-medium hover:bg-gray-200 transition"
+        >
+          Get Started
+        </Link>
+      </div>
+
+      {/* Footer */}
+      <footer className="text-center text-sm text-gray-600 py-6">
+        &copy; {new Date().getFullYear()} Smart Plan Manager. All rights reserved.
+      </footer>
     </main>
   );
 }
